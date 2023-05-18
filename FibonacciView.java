@@ -87,6 +87,9 @@ public class FibonacciView extends JFrame {
 		NorthButton_panel.add(getSum_button);
 		
 		Cancel_button = new JButton("Cancel");
+		Cancel_button.setEnabled(false);
+		Cancel_button.setForeground(new Color(0, 0, 0));
+		Cancel_button.setBackground(new Color(255, 206, 206));
 		Cancel_button.setFont(new Font("굴림", Font.BOLD, 12));
 		NorthButton_panel.add(Cancel_button);
 		
@@ -94,6 +97,7 @@ public class FibonacciView extends JFrame {
 		contentPane.add(Center_scrollPane, BorderLayout.CENTER);
 		
 		showSeries_textArea = new JTextArea();
+		showSeries_textArea.setEditable(false);
 		Center_scrollPane.setViewportView(showSeries_textArea);
 		
 		South_panel = new JPanel();
@@ -102,7 +106,9 @@ public class FibonacciView extends JFrame {
 		South_panel.setLayout(new BoxLayout(South_panel, BoxLayout.X_AXIS));
 		
 		progressBar = new JProgressBar();
-		progressBar.setBackground(new Color(0, 128, 255));
+		progressBar.setStringPainted(true);
+		progressBar.setForeground(new Color(156, 243, 160));
+		progressBar.setBackground(new Color(245, 245, 245));
 		progressBar.setPreferredSize(new Dimension(500, 14));
 		South_panel.add(progressBar);
 		
@@ -137,23 +143,25 @@ public class FibonacciView extends JFrame {
 	}//return input data in string format
 	//finish implementing getter-methods
 	
+	// * Below are setter-method *
 	public void setShowSeriesTextArea(String input) {
 		this.showSeries_textArea.setText(input);
-	}
+	}//set input text in showSeries_textArea 
 	
 	public void setViewSumTextField(String input) {
 		this.viewSum_textField.setText(input);
-	}
+	}//set input text in viewSum_textFeild
 	
 	public void setProgressBar(int input) {
 		this.progressBar.setValue(input);
-	}
+	}//set percentage value in progressBar
+	//finish implementing setter-methods 
 	
 	public void freezeCancelButton() {
 		this.Cancel_button.setEnabled(false);
-	}
+	}//freeze cancel-button
 	
 	public void activateCancelButton() {
 		this.Cancel_button.setEnabled(true);
-	}
+	}//activate cancel-button
 }
